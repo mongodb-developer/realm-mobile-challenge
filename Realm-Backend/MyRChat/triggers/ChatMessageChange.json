@@ -1,0 +1,23 @@
+{
+    "id": "615c1409c7aa0427d2c28897",
+    "name": "ChatMessageChange",
+    "type": "DATABASE",
+    "config": {
+        "operation_types": [
+            "INSERT",
+            "UPDATE",
+            "DELETE",
+            "REPLACE"
+        ],
+        "database": "RChat",
+        "collection": "ChatMessage",
+        "service_name": "mongodb-atlas",
+        "match": {},
+        "project": {},
+        "full_document": true,
+        "full_document_before_change": false,
+        "unordered": false
+    },
+    "function_name": "chatMessageChange",
+    "disabled": false
+}
