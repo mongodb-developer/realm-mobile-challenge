@@ -1,5 +1,5 @@
 use RChat
-db.createView('MessagesByRoom', 'ChatMessage', [{$match: {
+db.createView('viewMessagesByRoom', 'ChatMessage', [{$match: {
   author: "room"
 }}, {$project: {
   _id:0,
@@ -25,7 +25,7 @@ db.createView('MessagesByRoom', 'ChatMessage', [{$match: {
   activity: 1
 }}])
 
-db.createView('MessagesBySuspect', 'ChatMessage', [
+db.createView('viewRoomsBySuspect', 'ChatMessage', [
     {
       $match: {
         author: "room"
@@ -74,3 +74,29 @@ db.createView('MessagesBySuspect', 'ChatMessage', [
     }
   ]
 )
+
+db.createView('viewMessagesBySuspect', 'ChatMessage', [
+{$match: {
+  author: {$ne: "room"}
+}}, {$sort: {
+  timestamp: 1
+}}, {$project: {
+  _id: 0,
+  author: 1,
+  text: 1,
+  timestamp: 1
+}}, {$group: {
+  _id: "$author",
+  count: {$sum: 1},
+  messages: {
+    $push: {
+      text: "$text",
+      timestamp: "$timestamp"
+    }
+  }
+}}, {$project: {
+  _id: 0,
+  author: "$_id",
+  count: 1,
+  messages: 1
+}}])
