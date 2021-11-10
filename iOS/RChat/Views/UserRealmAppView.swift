@@ -35,8 +35,12 @@ struct UserRealmAppView: View {
         } else {
             Form {
                 Section {
-                    Image("realm-app-id")
-                        .resizable()    
+                    HStack {
+                        Spacer()
+                        Image("realm-app-id")
+    //                        .resizable()
+                        Spacer()
+                    }
                 }
                 Section(footer: Text("Copy Realm App ID from the Realm UI")) {
                         TextField("Realm App ID",
@@ -164,5 +168,6 @@ struct UserRealmAppView_Previews: PreviewProvider {
             UserRealmAppView(readyToBootstrap: .constant(true))
                 .environmentObject(AppState())
         }
+        
     }
 }
