@@ -9,7 +9,7 @@ import Foundation
 
 let boothMode = true
 let userID = "6136422fa9e90969b55c40b8" // TODO: Could read this from the challenge app
-let challengeAppID = "challenge-ydrbm"
+let challengeAppID = "challengeaws-aleil"
 let challengeUsername = "sql"
 let challengePassword = "realmChallenge"
 let userAppPrefix = "myrchat-"
