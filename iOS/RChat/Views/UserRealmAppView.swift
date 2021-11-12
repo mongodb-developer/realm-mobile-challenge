@@ -61,10 +61,10 @@ struct UserRealmAppView: View {
                 }
             }
             .navigationBarTitle("Realm App ID", displayMode: .inline)
-            .onAppear { 
-                print("Existing Realm App ID = \(state.userAppID)")
-                realmID = state.userAppID
-            }
+//            .onAppear { 
+//                print("Existing Realm App ID = \(state.userAppID)")
+//                realmID = state.userAppID
+//            }
         }
     }
     
@@ -100,12 +100,14 @@ struct UserRealmAppView: View {
                 guard error == nil else {
                     DispatchQueue.main.async {
                         state.error = "Failed to fetch actual PIN: \(error!.localizedDescription)"
+                        print("Failed to fetch actual PIN: \(error!.localizedDescription)")
                     }
                     return
                 }
                 DispatchQueue.main.async {
                     guard let result = result?.stringValue else {
                         state.error = "Retrieved PIN is missing"
+                        print("Retrieved PIN is missing")
                         return
                     }
                     state.pin = result

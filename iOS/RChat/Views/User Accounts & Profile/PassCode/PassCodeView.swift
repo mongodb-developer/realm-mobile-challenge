@@ -12,7 +12,7 @@ struct PassCodeView: View {
     @EnvironmentObject var state: AppState
     
     @State private var pin = ""
-    @State private var pinOK = false
+//    @State private var pinOK = false
     @State private var badPassword = false
     
     var body: some View {
@@ -30,7 +30,7 @@ struct PassCodeView: View {
                     Text("Enter Passccode")
                         .font(.title2)
                     VStack {
-                        DigitProgressView(pin: pin)
+                        DigitProgressView(pin: pin, numDigits: state.pin.count)
                             .frame(maxWidth: 200, maxHeight: 10)
                             .animation(.easeInOut(duration: 0.25), value: pin)
                     }
@@ -89,7 +89,7 @@ struct PassCodeView: View {
         if pin == state.pin {
             state.passCodeAccepted = true
         } else {
-            if pin.count >= 6 {
+            if pin.count >= state.pin.count {
                 badPassword = true
                 pin = ""
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

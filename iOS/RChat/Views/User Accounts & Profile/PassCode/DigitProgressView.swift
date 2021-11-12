@@ -9,10 +9,11 @@ import SwiftUI
 
 struct DigitProgressView: View {
     let pin: String
+    let numDigits: Int
     
     var body: some View {
         HStack(spacing: 20) {
-            ForEach((1...6), id: \.self) { index in
+            ForEach((1...numDigits), id: \.self) { index in
                 ZStack {
                     Circle()
                         .stroke(Color.white, lineWidth: 2)
@@ -28,7 +29,7 @@ struct DigitProgressView: View {
 
 struct DigitProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        DigitProgressView(pin: "1234")
+        DigitProgressView(pin: "1234", numDigits: 6)
             .frame(maxHeight: 20)
             .previewLayout(.sizeThatFits)
             .padding()
