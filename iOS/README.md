@@ -10,4 +10,4 @@ git clone git@github.com:mongodb-developer/realm-mobile-challenge.git
 cd realm-mobile-challenge/iOS
 open RChat.xcodeproj
 ```
-3. Update `RChatApp.swift` with your Realm App Id and then build & run the app
+3. Build & run the app (`Command-R`)
