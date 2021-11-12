@@ -7,7 +7,7 @@
 1. Download the repo and install the Realm app:
 ```
 git clone git@github.com:mongodb-developer/realm-mobile-challenge.git
-cd realm-mobile-challenge/Realm-Backend/RChat
+cd realm-mobile-challenge/Realm-Backend/MyRChat
 realm-cli login --api-key <your new public key> --private-api-key <your new private key>
 realm-cli import -y
 ```
