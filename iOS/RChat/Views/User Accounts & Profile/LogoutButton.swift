@@ -37,14 +37,15 @@ struct LogoutButton: View {
             print("Cleanup requested - hidden")
         }
         if boothMode {
-            state.app?.currentUser?.functions.removeNewerChatMessages([]) { _, error in
+//            state.app?.currentUser?.functions.removeNewerChatMessages([]) { _, error in
+            state.app?.currentUser?.functions.RemoveAllData([]) { _, error in
                 guard error == nil else {
                     DispatchQueue.main.async {
-                        state.error = "Failed to delete recent messages from Atlas: \(error!.localizedDescription)"
+                        state.error = "Failed to delete all data from Atlas: \(error!.localizedDescription)"
                     }
                     return
                 }
-                print("Cleanup requested - user")
+                print("Cleanup requested - all data")
             }
         }
         Task { do {

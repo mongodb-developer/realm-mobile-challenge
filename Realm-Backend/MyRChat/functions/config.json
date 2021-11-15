@@ -1,9 +1,19 @@
 [
     {
+        "name": "userDocWrittenTo",
+        "private": true,
+        "run_as_system": true
+    },
+    {
         "name": "chatMessageChange",
         "private": true,
         "run_as_system": true,
         "can_evaluate": {}
+    },
+    {
+        "name": "removeNewerChatMessages",
+        "private": false,
+        "run_as_system": true
     },
     {
         "name": "resetFunc",
@@ -11,12 +21,7 @@
         "can_evaluate": {}
     },
     {
-        "name": "userDocWrittenTo",
-        "private": true,
-        "run_as_system": true
-    },
-    {
-        "name": "removeNewerChatMessages",
+        "name": "RemoveAllData",
         "private": false,
         "run_as_system": true
     }
