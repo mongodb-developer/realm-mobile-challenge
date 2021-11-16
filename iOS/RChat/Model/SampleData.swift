@@ -91,7 +91,7 @@ extension Conversation {
         self.init()
         self.displayName = displayName
         self.unreadCount = unreadCount
-        self.members.append(objectsIn: members.map { Member($0) })
+        self.members.append(objectsIn: members.map { Member(member: $0) })
         
 //        forEach { username in
 //            self.members.append(Member(username))
@@ -102,7 +102,7 @@ extension Conversation {
         self.init()
         displayName = conversation.displayName
         unreadCount = conversation.unreadCount
-        members.append(objectsIn: conversation.members.map { Member($0) })
+        members.append(objectsIn: conversation.members.map { Member(member: $0) })
     }
 }
 
@@ -120,7 +120,7 @@ extension Conversation: Samplable {
 }
 
 extension Member {
-    convenience init(_ member: Member) {
+    convenience init(member: Member) {
         self.init()
         userName = member.userName
         membershipStatus = member.membershipStatus

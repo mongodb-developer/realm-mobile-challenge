@@ -250,6 +250,7 @@
 				49012A2E256BEA4C00C3614B /* RChatApp.swift */,
 				49012ACB256BEFFA00C3614B /* AppState.swift */,
 				49012A77256BEDB300C3614B /* Views */,
+				49012A6E256BECF200C3614B /* PreviewHelpers.swift */,
 				49012A76256BEDA500C3614B /* Model */,
 				49012B79256D83F000C3614B /* Helpers */,
 				49012A32256BEA4E00C3614B /* Assets.xcassets */,
@@ -263,8 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				49012A35256BEA4E00C3614B /* Preview Assets.xcassets */,
-				49012A6E256BECF200C3614B /* PreviewHelpers.swift */,
-				49012B23256C4F4F00C3614B /* SampleData.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -290,6 +289,7 @@
 		49012A76256BEDA500C3614B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				49012B23256C4F4F00C3614B /* SampleData.swift */,
 				49012AEC256BF2DF00C3614B /* User.swift */,
 				49012AF1256BF44700C3614B /* UserPreferences.swift */,
 				499E1E89256EB6F50036614F /* Chatster.swift */,
@@ -805,7 +805,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clusterdb.RChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -829,7 +829,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clusterdb.RChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

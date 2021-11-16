@@ -17,6 +17,7 @@ struct UserRealmAppView: View {
     @State private var hasSubmitted = false
     @State private var loggedIn = false
     @State private var bootstrapRequested = false
+    @State private var isBusy = false
     
     var validAppID: Bool {
         if hasSubmitted { return false }
@@ -33,31 +34,35 @@ struct UserRealmAppView: View {
         if state.checkingData {
             CheckingDataView()
         } else {
-            Form {
-                Section {
-                    HStack {
-                        Spacer()
-                        Image("realm-app-id")
-    //                        .resizable()
-                        Spacer()
-                    }
-                }
-                Section(footer: Text("Copy Realm App ID from the Realm UI")) {
-                        TextField("Realm App ID",
-                                  text: $realmID,
-                                  prompt: Text("Realm App ID from your MongoDB Realm App"))
-                }
-                Section {
-                    HStack {
-                        Spacer()
-                        Button(action: useAppID) {
-                            Text("Submit")
+            ZStack {
+                Form {
+                    Section {
+                        HStack {
+                            Spacer()
+                            Image("realm-app-id")
+                            Spacer()
                         }
-                        .disabled(!validAppID)
-                        .buttonStyle(.borderedProminent)
-                        .controlSize(.large)
-                        Spacer()
                     }
+                    Section(footer: Text("Copy Realm App ID from the Realm UI")) {
+                            TextField("Realm App ID",
+                                      text: $realmID,
+                                      prompt: Text("Realm App ID from your MongoDB Realm App"))
+                    }
+                    Section {
+                        HStack {
+                            Spacer()
+                            Button(action: useAppID) {
+                                Text("Submit")
+                            }
+                            .disabled(!validAppID)
+                            .buttonStyle(.borderedProminent)
+                            .controlSize(.large)
+                            Spacer()
+                        }
+                    }
+                }
+                if isBusy {
+                    ProgressView()
                 }
             }
             .navigationBarTitle("Realm App ID", displayMode: .inline)
@@ -69,6 +74,7 @@ struct UserRealmAppView: View {
     }
     
     private func useAppID() {
+        isBusy = true
         hasSubmitted = true
         state.userAppID = realmID
         state.app = RealmSwift.App(id: realmID)
