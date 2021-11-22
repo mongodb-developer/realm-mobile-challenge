@@ -2,6 +2,5 @@
     "config_version": 20210101,
     "name": "MyRChat",
     "location": "US-OR",
-    "deployment_model": "LOCAL",
-    "environment": "development"
+    "deployment_model": "LOCAL"
 }

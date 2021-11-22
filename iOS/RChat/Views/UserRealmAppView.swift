@@ -66,7 +66,8 @@ struct UserRealmAppView: View {
                 }
             }
             .navigationBarTitle("Realm App ID", displayMode: .inline)
-//            .onAppear { 
+            // TODO: For testing
+//            .onAppear {
 //                print("Existing Realm App ID = \(state.userAppID)")
 //                realmID = state.userAppID
 //            }

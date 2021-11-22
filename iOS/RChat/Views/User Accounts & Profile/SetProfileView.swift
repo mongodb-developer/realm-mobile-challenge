@@ -55,7 +55,10 @@ struct SetProfileView: View {
         .navigationBarTitle("Edit Profile", displayMode: .inline)
         .navigationBarItems(
             leading: Button(action: { isPresented = false }) { BackButton() },
-            trailing: state.loggedIn ? LogoutButton(user: user, action: { isPresented = false }) : nil)
+            trailing: state.loggedIn ? LogoutButton(user: user, action: {
+                state.error = ""
+                isPresented = false
+            }) : nil)
     }
     
     private func initData() {

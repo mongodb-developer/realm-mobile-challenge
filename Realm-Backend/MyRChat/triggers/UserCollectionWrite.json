@@ -1,5 +1,5 @@
 {
-    "id": "615c1409c7aa0427d2c28898",
+    "id": "618e46861d8f09b84ca86f8a",
     "name": "UserCollectionWrite",
     "type": "DATABASE",
     "config": {
@@ -18,6 +18,12 @@
         "full_document_before_change": false,
         "unordered": false
     },
-    "function_name": "userDocWrittenTo",
-    "disabled": false
+    "disabled": false,
+    "event_processors": {
+        "FUNCTION": {
+            "config": {
+                "function_name": "userDocWrittenTo"
+            }
+        }
+    }
 }
