@@ -30,7 +30,7 @@ struct LogoutButton: View {
         challengeApp.currentUser?.functions.purgeOldMessages([AnyBSON(state.userAppID)]) { _, error in
             guard error == nil else {
                 DispatchQueue.main.async {
-                    state.error = "Failed to clean up old messages: \(error!.localizedDescription)"
+                    state.error = "Failed to clean up old messages: \(error?.localizedDescription ?? "unkown")"
                 }
                 return
             }
@@ -41,7 +41,7 @@ struct LogoutButton: View {
             state.app?.currentUser?.functions.RemoveAllData([]) { _, error in
                 guard error == nil else {
                     DispatchQueue.main.async {
-                        state.error = "Failed to delete all data from Atlas: \(error!.localizedDescription)"
+                        state.error = "Failed to delete all data from Atlas: \(error?.localizedDescription ?? "unkown")"
                     }
                     return
                 }
@@ -52,7 +52,7 @@ struct LogoutButton: View {
                 try await state.app?.currentUser?.logOut()
             } catch {
                 state.shouldIndicateActivity = false
-                state.error = ("Failed to logout from Realm: \(error.localizedDescription)")
+                state.error = ("Failed to logout from Realm: \(error?.localizedDescription ?? "unkown")")
             }
         }
         state.user = nil

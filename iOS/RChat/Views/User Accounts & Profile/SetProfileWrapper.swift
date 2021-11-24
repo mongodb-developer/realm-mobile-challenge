@@ -36,7 +36,7 @@ struct SetProfileWrapper: View {
             state.app?.currentUser?.functions.RemoveAllData([]) { _, error in
                 guard error == nil else {
                     DispatchQueue.main.async {
-                        state.error = "Failed to delete all data from Atlas: \(error!.localizedDescription)"
+                        state.error = "Failed to delete all data from Atlas: \(error?.localizedDescription ?? "unkown")"
                     }
                     return
                 }

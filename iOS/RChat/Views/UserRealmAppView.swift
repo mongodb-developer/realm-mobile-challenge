@@ -89,7 +89,7 @@ struct UserRealmAppView: View {
             user.functions.bootstrapUserApp([AnyBSON(state.userAppID)]) { _, error in
                 guard error == nil else {
                     DispatchQueue.main.async {
-                        state.error = "Failed to bootstrap challenge data: \(error!.localizedDescription)"
+                        state.error = "Failed to bootstrap challenge data: \(error?.localizedDescription ?? "unkown")"
                     }
                     return
                 }
@@ -106,8 +106,8 @@ struct UserRealmAppView: View {
             user.functions.fetchPIN([]) { result, error in
                 guard error == nil else {
                     DispatchQueue.main.async {
-                        state.error = "Failed to fetch actual PIN: \(error!.localizedDescription)"
-                        print("Failed to fetch actual PIN: \(error!.localizedDescription)")
+                        state.error = "Failed to fetch actual PIN: \(error?.localizedDescription ?? "unkown")"
+                        print("Failed to fetch actual PIN: \(error?.localizedDescription ?? "unkown")")
                     }
                     return
                 }
@@ -133,7 +133,7 @@ struct UserRealmAppView: View {
         } catch {
             if error.localizedDescription != "name already in use" {
                 DispatchQueue.main.async {
-                    state.error = "Failed to sign up \(error.localizedDescription)"
+                    state.error = "Failed to sign up: \(error.localizedDescription)"
                 }
             }
         }
