@@ -52,7 +52,7 @@ struct LogoutButton: View {
                 try await state.app?.currentUser?.logOut()
             } catch {
                 state.shouldIndicateActivity = false
-                state.error = ("Failed to logout from Realm: \(error?.localizedDescription ?? "unkown")")
+                state.error = ("Failed to logout from Realm: \(error.localizedDescription)")
             }
         }
         state.user = nil

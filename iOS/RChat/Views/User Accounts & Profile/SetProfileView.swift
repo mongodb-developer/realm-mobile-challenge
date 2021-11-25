@@ -56,7 +56,7 @@ struct SetProfileView: View {
         .navigationBarItems(
             leading: Button(action: { isPresented = false }) { BackButton() },
             trailing: state.loggedIn ? LogoutButton(user: user, action: {
-                state.error = ""
+                state.error = nil
                 isPresented = false
             }) : nil)
     }
