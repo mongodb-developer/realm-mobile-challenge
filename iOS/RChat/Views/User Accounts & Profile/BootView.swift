@@ -27,6 +27,7 @@ struct BootView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 128))
                 Text("\(counter.description)")
+                    .foregroundColor(.black)
                     .onReceive(timer) { _ in
                         counter += 1
                         if users.count > 0 {
